@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Prediction Using Machine Learning</title>
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='ML_css.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300&display=swap" rel="stylesheet"> -->
+    <style>
+      body {
+        background-color: #fff;
+        font-family: 'IBM Plex Sans KR', sans-serif;
+      }
+  
+      h1 {
+        font-size: 36px;
+        color: #fff;
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 50px;
+        background-color: #0080ff;
+        padding: 20px;
+        border-radius: 10px;
+      }
+  
+      .container {
+        width: 50%;
+        margin: auto;
+        background-color: #f0f5f5;
+        padding: 50px;
+        border-radius: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      }
+  
+      input {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        font-size: 18px;
+        background-color: #fff;
+        color: #555;
+      }
+  
+      button {
+        background-color: #0080ff;
+        color: #fff;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+        transition-duration: 0.4s;
+      }
+  
+      button:hover {
+        background-color: #0059b3;
+        transition-duration: 0.4s;
+      }
+  
+      img {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+  
+      fieldset {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+
+      fieldset:hover {
+        background-color: #0080ff;
+        transition-duration: 0.4s;
+}
+
+
+  
+      label {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-bottom: 5px;
+        display: block;
+      }
+
+      a {
+        font-size:24px;
+        font-family: 'IBM Plex Sans KR', sans-serif;
+
+      }
+      
+    </style>
+  
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300&display=swap" rel="stylesheet">
+  </head>
+  </head>
+  <body>
+    <center><h1>Calories Burnt Prediction Using Machine Learning</h1></center>
+    <div class="container">
+  <form id="contact" action="{{url_for('predict')}}" method="POST">
+    <fieldset>
+      <label for="gender">Gender:</label>
+      <select name="a" tabindex="1" required autofocus style="font-size: 1.2em;" id="gender">
+        <option value="">Select Gender</option>
+        <option value="0">Male</option>
+        <option value="1">Female</option>
+      </select>
+    </fieldset>
+    
+    <fieldset>
+      <label for="age">Age:</label>
+      <input placeholder="Enter the Age" type="number" name="b" tabindex="2" style="text-align:center;" min="20" max="79" required id="age">
+    </fieldset>
+    
+    <fieldset>
+      <label for="height">Height(123-222 cm):</label>
+      <input placeholder="Height " name="c" type="number" tabindex="3" style="text-align:center;" min="123" max="222" step="0.1" required id="height">
+    </fieldset>
+    
+    <fieldset>
+      <label for="weight">Weight in Kgs(min:36 max:132):</label>
+      <input placeholder="Enter the Weight " name="d" type="number" tabindex="4"style="text-align:center;" min="36" max="132" step="0.1" required id="weight">
+    </fieldset>
+    
+    <fieldset>
+      <label for="duration">Duration:</label>
+      <input placeholder="Enter the Duration" type="number" name="e" tabindex="5" style="text-align:center;" step="0.1" required id="duration">
+    </fieldset>
+    
+    <fieldset>
+      <label for="heart-rate">Heart Rate (min:67 max:128):</label>
+      <input placeholder="Enter the Heart Rate " name="f" type="number" tabindex="6" style="text-align:center;" min="67" max="128" step="0.1" required id="heart-rate">
+    </fieldset>
+    
+    <fieldset>
+      <label for="body-temperature">Body Temperature (Upto 0.1 decimal places):</label>
+      <input placeholder="Enter the Body Temperature " name="g" type="number" style="text-align:center;" tabindex="7" step="0.1" required id="body-temperature">
+    </fieldset>
+    
+    <fieldset>
+      <button id="contact-submit" name="submit" type="submit" value="predict">Submit</button>
+    </fieldset>
+    
+    <fieldset>
+      <center><h2>{{ prediction_text }}</h2></center>
+    </fieldset>
+    <center><a href="https://ketocal.netlify.app/">Perfect Nutrition Plan using Keto Calculator</a></center>
+      </form>
+    </div>
+    
+</body>
+</html>
